@@ -1,0 +1,142 @@
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
+import Image from "next/image"
+
+export function Footer() {
+  return (
+    <footer className="bg-black text-white py-16">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Company Info */}
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-4 mb-6">
+                <Image
+                  src="/images/new-logo.jpeg"
+                  alt="Menova Lux Logo"
+                  width={60}
+                  height={60}
+                  className="rounded-lg object-contain"
+                  style={{
+                    background: "transparent",
+                  }}
+                />
+                <div>
+                  <h3 className="text-2xl font-bold">MENOVA LUX</h3>
+                  <p className="text-gray-400">Rénovation Générale Inc.</p>
+                </div>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Votre partenaire de confiance pour tous vos projets de rénovation à Montréal et environs.
+                <br />
+                <span className="text-sm text-gray-400">Licence RBQ: 5865-5564-01</span>
+                <br />
+                <span className="text-sm text-gray-400">Intervenant: 5865-5564</span>
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Nos Services</h4>
+              <ul className="space-y-3 text-gray-300">
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Rénovation Complète
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Cuisine
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Salle de Bain
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Sous-sol
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Électricité
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                    Plomberie
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Contact</h4>
+              <div className="space-y-4 text-gray-300">
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-4 w-4 text-yellow-400" />
+                  <a href="tel:15149248424" className="hover:text-yellow-400 transition-colors">
+                    (514) 924-8424
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-4 w-4 text-yellow-400" />
+                  <a href="mailto:info@menovalux.com" className="hover:text-yellow-400 transition-colors">
+                    info@menovalux.com
+                  </a>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-4 w-4 text-yellow-400 mt-1" />
+                  <div>
+                    <p>Montréal, Québec</p>
+                    <p className="text-sm text-gray-400">Service dans toute la région</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2024 Menova Lux Inc. Tous droits réservés.</p>
+              <div className="flex space-x-6 text-sm text-gray-400">
+                <a href="#" className="hover:text-yellow-400 transition-colors">
+                  Politique de Confidentialité
+                </a>
+                <a href="#" className="hover:text-yellow-400 transition-colors">
+                  Conditions d'Utilisation
+                </a>
+                <a href="#" className="hover:text-yellow-400 transition-colors">
+                  Garanties
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
