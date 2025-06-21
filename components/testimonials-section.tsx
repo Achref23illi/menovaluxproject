@@ -56,12 +56,12 @@ export function TestimonialsSection() {
           </div>
 
           <div className="relative bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <Quote className="h-12 w-12 text-yellow-400 mb-6" />
+                          <Quote className="h-12 w-12 text-[#C9A961] mb-6" />
 
             <div className="mb-8">
               <div className="flex items-center mb-4">
                 {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-[#C9A961] fill-current" />
                 ))}
               </div>
 
@@ -74,7 +74,7 @@ export function TestimonialsSection() {
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg">{testimonials[currentTestimonial].name}</h4>
                     <p className="text-gray-600">{testimonials[currentTestimonial].location}</p>
-                    <p className="text-sm text-yellow-600 font-medium">{testimonials[currentTestimonial].project}</p>
+                    <p className="text-sm text-[#C9A961] font-medium">{testimonials[currentTestimonial].project}</p>
                   </div>
 
                   <div className="flex items-center space-x-2">
@@ -82,7 +82,8 @@ export function TestimonialsSection() {
                       variant="outline"
                       size="icon"
                       onClick={prevTestimonial}
-                      className="border-gray-300 hover:border-yellow-400 hover:text-yellow-400"
+                      className="border-gray-300 hover:border-[#C9A961] hover:text-[#C9A961]"
+                      aria-label="Témoignage précédent"
                     >
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
@@ -90,7 +91,8 @@ export function TestimonialsSection() {
                       variant="outline"
                       size="icon"
                       onClick={nextTestimonial}
-                      className="border-gray-300 hover:border-yellow-400 hover:text-yellow-400"
+                      className="border-gray-300 hover:border-[#C9A961] hover:text-[#C9A961]"
+                      aria-label="Témoignage suivant"
                     >
                       <ChevronRight className="h-4 w-4" />
                     </Button>
@@ -105,8 +107,9 @@ export function TestimonialsSection() {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? "bg-yellow-400" : "bg-gray-300"
+                    index === currentTestimonial ? "bg-[#C9A961]" : "bg-gray-300"
                   }`}
+                  aria-label={`Aller au témoignage ${index + 1}`}
                 />
               ))}
             </div>

@@ -47,7 +47,7 @@ export function AboutSection() {
 
             <div className="relative">
               <img
-                src="/images/modern-living-room.jpeg"
+                src="/images/20190926_000310.jpg"
                 alt="Salon moderne rénové par Menova Lux"
                 className="rounded-lg shadow-2xl w-full h-[500px] object-cover"
               />
@@ -56,7 +56,7 @@ export function AboutSection() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#C9A961] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">500+</h4>
@@ -64,7 +64,7 @@ export function AboutSection() {
             </div>
 
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#C9A961] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">15+</h4>
@@ -72,7 +72,7 @@ export function AboutSection() {
             </div>
 
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#C9A961] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">24/7</h4>

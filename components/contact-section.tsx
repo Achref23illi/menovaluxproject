@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Phone, Mail, MapPin, Clock, Send, Award } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Send, Award, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -57,12 +57,12 @@ export function ContactSection() {
                 <h3 className="text-2xl font-bold mb-6">Informations de Contact</h3>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="h-6 w-6 text-black" />
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Téléphone</h4>
-                      <a href="tel:15149248424" className="text-gray-300 hover:text-yellow-400 transition-colors">
+                      <a href="tel:15149248424" className="text-gray-300 hover:text-[#C9A961] transition-colors">
                         (514) 924-8424
                       </a>
                       <p className="text-sm text-gray-400">Disponible 24/7 pour urgences</p>
@@ -70,7 +70,7 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <Award className="h-6 w-6 text-black" />
                     </div>
                     <div>
@@ -82,14 +82,14 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <Mail className="h-6 w-6 text-black" />
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
                       <a
                         href="mailto:info@menovalux.com"
-                        className="text-gray-300 hover:text-yellow-400 transition-colors"
+                        className="text-gray-300 hover:text-[#C9A961] transition-colors"
                       >
                         info@menovalux.com
                       </a>
@@ -98,7 +98,7 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="h-6 w-6 text-black" />
                     </div>
                     <div>
@@ -109,7 +109,7 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <Clock className="h-6 w-6 text-black" />
                     </div>
                     <div>
@@ -124,7 +124,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <Card className="bg-yellow-400 text-black border-0">
+              <Card className="bg-[#C9A961] text-black border-0">
                 <CardHeader>
                   <CardTitle className="text-xl">Devis Gratuit</CardTitle>
                 </CardHeader>
@@ -238,7 +238,7 @@ export function ContactSection() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3"
+                      className="w-full bg-[#C9A961] hover:bg-[#B8975A] text-black font-semibold py-3"
                     >
                       <Send className="h-4 w-4 mr-2" />
                       Envoyer la Demande

@@ -15,7 +15,7 @@ export function HeroSection() {
     <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-        <source src="/videos/hero-background.mp4" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay */}
@@ -48,7 +48,7 @@ export function HeroSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm">
-          <a href="tel:15149248424" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
+          <a href="tel:15149248424" className="flex items-center space-x-2 hover:text-[#C9A961] transition-colors">
             <Phone className="h-4 w-4" />
             <span>(514) 924-8424</span>
           </a>

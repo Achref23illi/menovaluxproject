@@ -11,7 +11,7 @@ export function Footer() {
             <div className="md:col-span-2">
               <div className="flex items-center space-x-4 mb-6">
                 <Image
-                  src="/images/new-logo.jpeg"
+                  src="/images/logo.png"
                   alt="Menova Lux Logo"
                   width={60}
                   height={60}
@@ -35,19 +35,19 @@ export function Footer() {
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#C9A961] hover:text-black transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#C9A961] hover:text-black transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-colors"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#C9A961] hover:text-black transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
@@ -59,32 +59,32 @@ export function Footer() {
               <h4 className="text-lg font-semibold mb-6">Nos Services</h4>
               <ul className="space-y-3 text-gray-300">
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Rénovation Complète
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Cuisine
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Salle de Bain
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Sous-sol
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Électricité
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400 transition-colors">
+                  <a href="#" className="hover:text-[#C9A961] transition-colors">
                     Plomberie
                   </a>
                 </li>
@@ -96,22 +96,22 @@ export function Footer() {
               <h4 className="text-lg font-semibold mb-6">Contact</h4>
               <div className="space-y-4 text-gray-300">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-4 w-4 text-yellow-400" />
-                  <a href="tel:15149248424" className="hover:text-yellow-400 transition-colors">
+                  <Phone className="h-4 w-4 text-[#C9A961]" />
+                  <a href="tel:15149248424" className="hover:text-[#C9A961] transition-colors">
                     (514) 924-8424
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="h-4 w-4 text-yellow-400" />
-                  <a href="mailto:info@menovalux.com" className="hover:text-yellow-400 transition-colors">
+                  <Mail className="h-4 w-4 text-[#C9A961]" />
+                  <a href="mailto:info@menovalux.com" className="hover:text-[#C9A961] transition-colors">
                     info@menovalux.com
                   </a>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <MapPin className="h-4 w-4 text-yellow-400 mt-1" />
+                  <MapPin className="h-4 w-4 text-[#C9A961] mt-1" />
                   <div>
                     <p>Montréal, Québec</p>
-                    <p className="text-sm text-gray-400">Service dans toute la région</p>
+                    <p className="text-sm text-gray-400 mt-1">Service dans le Grand Montréal</p>
                   </div>
                 </div>
               </div>
@@ -123,14 +123,14 @@ export function Footer() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2024 Menova Lux Inc. Tous droits réservés.</p>
               <div className="flex space-x-6 text-sm text-gray-400">
-                <a href="#" className="hover:text-yellow-400 transition-colors">
-                  Politique de Confidentialité
+                <a href="#" className="hover:text-[#C9A961] transition-colors">
+                  Politique de confidentialité
                 </a>
-                <a href="#" className="hover:text-yellow-400 transition-colors">
-                  Conditions d'Utilisation
+                <a href="#" className="hover:text-[#C9A961] transition-colors">
+                  Conditions d'utilisation
                 </a>
-                <a href="#" className="hover:text-yellow-400 transition-colors">
-                  Garanties
+                <a href="#" className="hover:text-[#C9A961] transition-colors">
+                  Plan du site
                 </a>
               </div>
             </div>
