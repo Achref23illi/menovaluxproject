@@ -1,7 +1,11 @@
+'use client'
+
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react"
 import Image from "next/image"
+import { useLocale } from '@/components/locale-provider'
 
 export function Footer() {
+  const { t } = useLocale()
   return (
     <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
@@ -22,7 +26,7 @@ export function Footer() {
                 />
                 <div>
                   <h3 className="text-2xl font-bold">MENOVA LUX</h3>
-                  <p className="text-gray-400">Rénovation Générale Inc.</p>
+                  <p className="text-gray-400">{t('tagline_company_type')}</p>
                 </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
@@ -56,36 +60,36 @@ export function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Nos Services</h4>
+              <h4 className="text-lg font-semibold mb-6">{t('services_title')}</h4>
               <ul className="space-y-3 text-gray-300">
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Rénovation Complète
+                    {t('contact_form_option_complete_renovation')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Cuisine
+                    {t('contact_form_option_kitchen')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Salle de Bain
+                    {t('contact_form_option_bathroom')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Sous-sol
+                    {t('contact_form_option_basement')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Électricité
+                    {t('contact_form_option_electricity')}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-[#C9A961] transition-colors">
-                    Plomberie
+                    {t('contact_form_option_plumbing')}
                   </a>
                 </li>
               </ul>
@@ -121,16 +125,16 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2024 Menova Lux Inc. Tous droits réservés.</p>
+              <p className="text-gray-400 text-sm mb-4 md:mb-0">{t('footer_rights')}</p>
               <div className="flex space-x-6 text-sm text-gray-400">
                 <a href="#" className="hover:text-[#C9A961] transition-colors">
-                  Politique de confidentialité
+                  {t('privacy_policy')}
                 </a>
                 <a href="#" className="hover:text-[#C9A961] transition-colors">
-                  Conditions d'utilisation
+                  {t('terms_of_use')}
                 </a>
                 <a href="#" className="hover:text-[#C9A961] transition-colors">
-                  Plan du site
+                  {t('site_map')}
                 </a>
               </div>
             </div>

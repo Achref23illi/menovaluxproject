@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { LocaleProvider } from '@/components/locale-provider'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: 'v0 App',
@@ -13,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="fr">
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LocaleProvider>{children}</LocaleProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

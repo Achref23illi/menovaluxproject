@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from "react"
+import { useLocale } from '@/components/locale-provider'
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function TestimonialsSection() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const { t } = useLocale()
 
   const testimonials = [
     {
@@ -51,8 +53,8 @@ export function TestimonialsSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Ce Que Disent Nos Clients</h2>
-            <p className="text-xl text-gray-600">La satisfaction de nos clients est notre plus grande fierté</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('testimonials_title')}</h2>
+            <p className="text-xl text-gray-600">{t('testimonials_subtitle')}</p>
           </div>
 
           <div className="relative bg-white rounded-2xl shadow-xl p-8 md:p-12">
@@ -83,7 +85,7 @@ export function TestimonialsSection() {
                       size="icon"
                       onClick={prevTestimonial}
                       className="border-gray-300 hover:border-[#C9A961] hover:text-[#C9A961]"
-                      aria-label="Témoignage précédent"
+                      aria-label={t('testimonials_prev') as string}
                     >
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
@@ -92,7 +94,7 @@ export function TestimonialsSection() {
                       size="icon"
                       onClick={nextTestimonial}
                       className="border-gray-300 hover:border-[#C9A961] hover:text-[#C9A961]"
-                      aria-label="Témoignage suivant"
+                      aria-label={t('testimonials_next') as string}
                     >
                       <ChevronRight className="h-4 w-4" />
                     </Button>
@@ -119,15 +121,15 @@ export function TestimonialsSection() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
-                <div className="text-gray-600">Projets Réalisés</div>
+                <div className="text-gray-600">{t('testimonials_stats_projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">98%</div>
-                <div className="text-gray-600">Clients Satisfaits</div>
+                <div className="text-gray-600">{t('testimonials_stats_clients')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
-                <div className="text-gray-600">Note Moyenne</div>
+                <div className="text-gray-600">{t('testimonials_stats_rating')}</div>
               </div>
             </div>
           </div>

@@ -3,13 +3,16 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Phone, Mail, MapPin, Clock, Send, Award, Calendar } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Send, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useLocale } from '@/components/locale-provider'
 
 export function ContactSection() {
+  const { t } = useLocale()
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,24 +47,22 @@ export function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Contactez-Nous</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Prêt à transformer votre espace ? Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé.
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('contact_title')}</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t('contact_subtitle')}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-6">Informations de Contact</h3>
+                <h3 className="text-2xl font-bold mb-6">{t('contact_info_title')}</h3>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-[#C9A961] rounded-lg flex items-center justify-center flex-shrink-0">
                       <Phone className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Téléphone</h4>
+                      <h4 className="font-semibold mb-1">{t('contact_phone_label')}</h4>
                       <div className="space-y-1">
                         <a href="tel:15149248424" className="text-gray-300 hover:text-[#C9A961] transition-colors block">
                           (514) 924-8424
@@ -70,7 +71,7 @@ export function ContactSection() {
                           (514) 824-7562
                         </a>
                       </div>
-                      <p className="text-sm text-gray-400">Disponible 24/7 pour urgences</p>
+                      <p className="text-sm text-gray-400">{t('contact_emergency')}</p>
                     </div>
                   </div>
 
@@ -79,10 +80,10 @@ export function ContactSection() {
                       <Award className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Licence RBQ</h4>
+                      <h4 className="font-semibold mb-1">{t('contact_license_label')}</h4>
                       <p className="text-gray-300">5865-5564-01</p>
                       <p className="text-gray-300">Intervenant: 5865-5564</p>
-                      <p className="text-sm text-gray-400">Entrepreneur général</p>
+                      <p className="text-sm text-gray-400">{t('contact_general_contractor')}</p>
                     </div>
                   </div>
 
@@ -91,14 +92,14 @@ export function ContactSection() {
                       <Mail className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Email</h4>
+                      <h4 className="font-semibold mb-1">{t('contact_email_label')}</h4>
                       <a
                         href="mailto:info@menovalux.com"
                         className="text-gray-300 hover:text-[#C9A961] transition-colors"
                       >
                         info@menovalux.com
                       </a>
-                      <p className="text-sm text-gray-400">Réponse sous 24h</p>
+                      <p className="text-sm text-gray-400">{t('contact_email_response')}</p>
                     </div>
                   </div>
 
@@ -107,7 +108,7 @@ export function ContactSection() {
                       <MapPin className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Zone de Service</h4>
+                      <h4 className="font-semibold mb-1">{t('contact_service_area_label')}</h4>
                       <p className="text-gray-300">Montréal et environs</p>
                       <p className="text-sm text-gray-400">Laval, Longueuil, Rive-Sud, Rive-Nord</p>
                     </div>
@@ -118,11 +119,11 @@ export function ContactSection() {
                       <Clock className="h-6 w-6 text-black" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Heures d'Ouverture</h4>
+                      <h4 className="font-semibold mb-1">{t('contact_open_hours_label')}</h4>
                       <div className="text-gray-300 space-y-1">
-                        <p>Lun - Ven: 7h00 - 18h00</p>
-                        <p>Sam: 8h00 - 16h00</p>
-                        <p>Dim: Sur rendez-vous</p>
+                        <p>{t('contact_open_hours_week')}</p>
+                        <p>{t('contact_open_hours_sat')}</p>
+                        <p>{t('contact_open_hours_sun')}</p>
                       </div>
                     </div>
                   </div>
@@ -131,16 +132,14 @@ export function ContactSection() {
 
               <Card className="bg-[#C9A961] text-black border-0">
                 <CardHeader>
-                  <CardTitle className="text-xl">Devis Gratuit</CardTitle>
+                  <CardTitle className="text-xl">{t('contact_free_quote_title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4">
-                    Obtenez une estimation gratuite et sans engagement pour votre projet de rénovation.
-                  </p>
+                  <p className="mb-4">{t('contact_free_quote_description')}</p>
                   <ul className="space-y-2 text-sm">
-                    <li>✓ Consultation gratuite à domicile</li>
-                    <li>✓ Devis détaillé sous 48h</li>
-                    <li>✓ Conseils d'experts inclus</li>
+                    <li>✓ {t('contact_free_quote_feature1')}</li>
+                    <li>✓ {t('contact_free_quote_feature2')}</li>
+                    <li>✓ {t('contact_free_quote_feature3')}</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -150,14 +149,14 @@ export function ContactSection() {
             <div>
               <Card className="bg-gray-800 border-gray-700">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-white">Demander un Devis</CardTitle>
+                  <CardTitle className="text-2xl text-white">{t('contact_form_title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                          Nom Complet *
+                          {t('contact_form_label_full_name')}
                         </label>
                         <Input
                           id="name"
@@ -167,12 +166,12 @@ export function ContactSection() {
                           value={formData.name}
                           onChange={handleChange}
                           className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                          placeholder="Votre nom"
+                          placeholder={t('contact_form_placeholder_name') as string}
                         />
                       </div>
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                          Téléphone *
+                          {t('contact_form_label_phone')}
                         </label>
                         <Input
                           id="phone"
@@ -182,14 +181,14 @@ export function ContactSection() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                          placeholder="(514) 000-0000"
+                          placeholder={t('contact_form_placeholder_phone') as string}
                         />
                       </div>
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        Email *
+                        {t('contact_form_label_email')}
                       </label>
                       <Input
                         id="email"
@@ -199,13 +198,13 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                        placeholder="votre@email.com"
+                        placeholder={t('contact_form_placeholder_email') as string}
                       />
                     </div>
 
                     <div>
                       <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                        Type de Service
+                        {t('contact_form_label_service')}
                       </label>
                       <select
                         id="service"
@@ -214,20 +213,20 @@ export function ContactSection() {
                         onChange={handleChange}
                         className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
                       >
-                        <option value="">Sélectionnez un service</option>
-                        <option value="renovation-complete">Rénovation Complète</option>
-                        <option value="cuisine">Rénovation de Cuisine</option>
-                        <option value="salle-de-bain">Rénovation de Salle de Bain</option>
-                        <option value="sous-sol">Aménagement de Sous-sol</option>
-                        <option value="electricite">Électricité</option>
-                        <option value="plomberie">Plomberie</option>
-                        <option value="autre">Autre</option>
+                        <option value="">{t('contact_form_select_service')}</option>
+                        <option value="renovation-complete">{t('contact_form_option_complete_renovation')}</option>
+                        <option value="cuisine">{t('contact_form_option_kitchen')}</option>
+                        <option value="salle-de-bain">{t('contact_form_option_bathroom')}</option>
+                        <option value="sous-sol">{t('contact_form_option_basement')}</option>
+                        <option value="electricite">{t('contact_form_option_electricity')}</option>
+                        <option value="plomberie">{t('contact_form_option_plumbing')}</option>
+                        <option value="autre">{t('contact_form_option_other')}</option>
                       </select>
                     </div>
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                        Description du Projet *
+                        {t('contact_form_label_project_description')}
                       </label>
                       <Textarea
                         id="message"
@@ -237,7 +236,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         rows={4}
                         className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
-                        placeholder="Décrivez votre projet en détail..."
+                        placeholder={t('contact_form_placeholder_project_description') as string}
                       />
                     </div>
 
@@ -246,7 +245,7 @@ export function ContactSection() {
                       className="w-full bg-[#C9A961] hover:bg-[#B8975A] text-black font-semibold py-3"
                     >
                       <Send className="h-4 w-4 mr-2" />
-                      Envoyer la Demande
+                      {t('contact_form_submit')}
                     </Button>
                   </form>
                 </CardContent>

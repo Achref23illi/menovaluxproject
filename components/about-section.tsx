@@ -1,46 +1,48 @@
+'use client'
+
 import { CheckCircle, Users, Award, Clock } from "lucide-react"
+import { useLocale } from "@/components/locale-provider"
 
 export function AboutSection() {
+  const { t } = useLocale()
+
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">À Propos de Menova Lux</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{t('about_title')}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Depuis notre création, nous nous engageons à transformer vos espaces avec excellence, créativité et
-              professionnalisme.
+              {t('about_description')}
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Notre Mission</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('mission_title')}</h3>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Chez Menova Lux, nous croyons que chaque espace a le potentiel de devenir extraordinaire. Notre mission
-                est de transformer vos rêves en réalité grâce à notre expertise en rénovation générale.
+                {t('mission_paragraph1')}
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Nous combinons savoir-faire traditionnel et techniques modernes pour offrir des résultats qui dépassent
-                vos attentes, dans le respect des délais et du budget convenu.
+                {t('mission_paragraph2')}
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Équipe d'experts qualifiés</span>
+                  <span className="text-gray-700">{t('feature_expert_team')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Matériaux de qualité supérieure</span>
+                  <span className="text-gray-700">{t('feature_quality_materials')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Respect des délais et budgets</span>
+                  <span className="text-gray-700">{t('feature_deadlines_budgets')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700">Garantie sur tous nos travaux</span>
+                  <span className="text-gray-700">{t('feature_work_guarantee')}</span>
                 </div>
               </div>
             </div>
@@ -60,7 +62,7 @@ export function AboutSection() {
                 <Users className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">500+</h4>
-              <p className="text-gray-600">Clients Satisfaits</p>
+              <p className="text-gray-600">{t('stats_clients')}</p>
             </div>
 
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
@@ -68,7 +70,7 @@ export function AboutSection() {
                 <Award className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">15+</h4>
-              <p className="text-gray-600">Années d'Expérience</p>
+              <p className="text-gray-600">{t('stats_experience')}</p>
             </div>
 
             <div className="text-center p-8 bg-white rounded-lg shadow-lg">
@@ -76,7 +78,7 @@ export function AboutSection() {
                 <Clock className="h-8 w-8 text-black" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">24/7</h4>
-              <p className="text-gray-600">Support Client</p>
+              <p className="text-gray-600">{t('stats_support')}</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useLocale } from '@/components/locale-provider'
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { Card, CardContent } from './ui/card'
@@ -56,6 +57,7 @@ const galleryImages = [
 ]
 
 export function GallerySection() {
+  const { t } = useLocale()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [api, setApi] = useState<CarouselApi>()
 
@@ -114,12 +116,8 @@ export function GallerySection() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Galerie de Nos Travaux
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Parcourez notre portfolio de projets terminés et découvrez la qualité de notre savoir-faire dans chaque réalisation.
-              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{t('gallery_title')}</h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t('gallery_description')}</p>
             </div>
 
         <Carousel
@@ -190,14 +188,12 @@ export function GallerySection() {
 
         <div className="text-center mt-16">
           <div className="bg-gray-700 rounded-lg p-6 max-w-2xl mx-auto border border-gray-600">
-            <p className="text-gray-300 text-lg mb-4">
-              Vous souhaitez voir plus de nos réalisations ?
-            </p>
+            <p className="text-gray-300 text-lg mb-4">{t('gallery_more_prompt')}</p>
             <a 
               href="#contact" 
               className="inline-block bg-[#C9A961] hover:bg-[#B8975A] text-black px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
             >
-              Contactez-nous pour votre projet
+              {t('gallery_contact_button')}
             </a>
           </div>
         </div>

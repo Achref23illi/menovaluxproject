@@ -5,9 +5,17 @@ import { Menu, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
+import { useLocale } from "@/components/locale-provider"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+
+  // i18n
+  const { locale, setLocale, t } = useLocale()
+
+  const toggleLocale = () => {
+    setLocale(locale === 'fr' ? 'en' : 'fr')
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,10 +65,10 @@ export function Header() {
               }`}>MENOVA LUX</h1>
               <p className={`text-white/80 transition-all duration-500 ${
                 isScrolled ? "text-xs" : "text-sm"
-              }`}>Rénovation Générale Inc.</p>
+              }`}>{t('tagline_company_type')}</p>
               <p className={`text-white/70 transition-all duration-500 ${
                 isScrolled ? "text-xs" : "text-xs"
-              }`}>Licence: 5865-5564-01</p>
+              }`}>{t('tagline_license')}</p>
             </div>
           </div>
 
@@ -70,36 +78,45 @@ export function Header() {
               onClick={() => scrollToSection("accueil")}
               className="relative text-white hover:text-white transition-all duration-300 font-medium py-2 px-3 rounded-md hover:bg-white/10 group"
             >
-              Accueil
+              {t('nav_home')}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
               onClick={() => scrollToSection("about")}
               className="relative text-white hover:text-white transition-all duration-300 font-medium py-2 px-3 rounded-md hover:bg-white/10 group"
             >
-              À Propos
+              {t('nav_about')}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
               onClick={() => scrollToSection("services")}
               className="relative text-white hover:text-white transition-all duration-300 font-medium py-2 px-3 rounded-md hover:bg-white/10 group"
             >
-              Services
+              {t('nav_services')}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
               onClick={() => scrollToSection("projets")}
               className="relative text-white hover:text-white transition-all duration-300 font-medium py-2 px-3 rounded-md hover:bg-white/10 group"
             >
-              Projets
+              {t('nav_projects')}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="relative text-white hover:text-white transition-all duration-300 font-medium py-2 px-3 rounded-md hover:bg-white/10 group"
             >
-              Contact
+              {t('nav_contact')}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+            </button>
+
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLocale}
+              className="ml-2 text-white font-semibold py-2 px-3 rounded-md border border-white/30 hover:bg-white/10 transition-colors"
+              aria-label="Toggle language"
+            >
+              {locale === 'fr' ? 'EN' : 'FR'}
             </button>
           </nav>
 
@@ -138,31 +155,37 @@ export function Header() {
                     onClick={() => scrollToSection("accueil")}
                     className="text-left hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                   >
-                    Accueil
+                    {t('nav_home')}
                   </button>
                   <button
                     onClick={() => scrollToSection("about")}
                     className="text-left hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                   >
-                    À Propos
+                    {t('nav_about')}
                   </button>
                   <button
                     onClick={() => scrollToSection("services")}
                     className="text-left hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                   >
-                    Services
+                    {t('nav_services')}
                   </button>
                   <button
                     onClick={() => scrollToSection("projets")}
                     className="text-left hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                   >
-                    Projets
+                    {t('nav_projects')}
                   </button>
                   <button
                     onClick={() => scrollToSection("contact")}
                     className="text-left hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
                   >
-                    Contact
+                    {t('nav_contact')}
+                  </button>
+                  <button
+                    onClick={toggleLocale}
+                    className="text-left w-full hover:text-white transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10"
+                  >
+                    {locale === 'fr' ? 'English' : 'Français'}
                   </button>
                   <div className="border-t border-white/20 pt-4">
                     <div className="space-y-3">
