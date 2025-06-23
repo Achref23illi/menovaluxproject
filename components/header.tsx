@@ -104,13 +104,22 @@ export function Header() {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <a
-              href="tel:15149248424"
-              className="hidden md:flex items-center space-x-2 text-white hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full border border-white/20 hover:border-white/40 backdrop-blur-sm"
-            >
-              <Phone className="h-4 w-4" />
-              <span className="font-medium">(514) 924-8424</span>
-            </a>
+            <div className="hidden md:flex items-center space-x-4">
+              <a
+                href="tel:15149248424"
+                className="flex items-center space-x-2 text-white hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full border border-white/20 hover:border-white/40 backdrop-blur-sm"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="font-medium">(514) 924-8424</span>
+              </a>
+              <a
+                href="tel:15148247562"
+                className="flex items-center space-x-2 text-white hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full border border-white/20 hover:border-white/40 backdrop-blur-sm"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="font-medium">(514) 824-7562</span>
+              </a>
+            </div>
 
             {/* Mobile Menu */}
             <Sheet>
@@ -156,13 +165,22 @@ export function Header() {
                     Contact
                   </button>
                   <div className="border-t border-white/20 pt-4">
-                    <a
-                      href="tel:15149248424"
-                      className="flex items-center space-x-3 hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-3 rounded-lg border border-white/20 hover:border-white/40"
-                    >
-                      <Phone className="h-5 w-5" />
-                      <span className="font-medium">(514) 924-8424</span>
-                    </a>
+                    <div className="space-y-3">
+                      <a
+                        href="tel:15149248424"
+                        className="flex items-center space-x-3 hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-3 rounded-lg border border-white/20 hover:border-white/40"
+                      >
+                        <Phone className="h-5 w-5" />
+                        <span className="font-medium">(514) 924-8424</span>
+                      </a>
+                      <a
+                        href="tel:15148247562"
+                        className="flex items-center space-x-3 hover:text-white transition-all duration-300 bg-white/10 hover:bg-white/20 px-4 py-3 rounded-lg border border-white/20 hover:border-white/40"
+                      >
+                        <Phone className="h-5 w-5" />
+                        <span className="font-medium">(514) 824-7562</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </SheetContent>

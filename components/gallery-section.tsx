@@ -68,7 +68,7 @@ export function GallerySection() {
       } else {
         api.scrollTo(0)
       }
-    }, 3000) // 3 seconds delay
+    }, 5000) // 5 seconds delay - slower autoplay
 
     return interval
   }, [api])

@@ -62,9 +62,14 @@ export function ContactSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Téléphone</h4>
-                      <a href="tel:15149248424" className="text-gray-300 hover:text-[#C9A961] transition-colors">
-                        (514) 924-8424
-                      </a>
+                      <div className="space-y-1">
+                        <a href="tel:15149248424" className="text-gray-300 hover:text-[#C9A961] transition-colors block">
+                          (514) 924-8424
+                        </a>
+                        <a href="tel:15148247562" className="text-gray-300 hover:text-[#C9A961] transition-colors block">
+                          (514) 824-7562
+                        </a>
+                      </div>
                       <p className="text-sm text-gray-400">Disponible 24/7 pour urgences</p>
                     </div>
                   </div>
