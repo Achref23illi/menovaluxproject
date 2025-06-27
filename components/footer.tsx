@@ -107,8 +107,8 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-4 w-4 text-[#C9A961]" />
-                  <a href="mailto:info@menovalux.com" className="hover:text-[#C9A961] transition-colors">
-                    info@menovalux.com
+                  <a href="mailto:contact@menovalux.ca" className="hover:text-[#C9A961] transition-colors">
+                    contact@menovalux.ca
                   </a>
                 </div>
                 <div className="flex items-start space-x-3">

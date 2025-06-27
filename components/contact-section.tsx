@@ -94,10 +94,10 @@ export function ContactSection() {
                     <div>
                       <h4 className="font-semibold mb-1">{t('contact_email_label')}</h4>
                       <a
-                        href="mailto:info@menovalux.com"
+                        href="mailto:contact@menovalux.ca"
                         className="text-gray-300 hover:text-[#C9A961] transition-colors"
                       >
-                        info@menovalux.com
+                        contact@menovalux.ca
                       </a>
                       <p className="text-sm text-gray-400">{t('contact_email_response')}</p>
                     </div>

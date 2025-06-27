@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Menovalux',
     template: '%s | Menovalux',
   },
-  description: 'Entreprise de menuiserie aluminium et PVC à Montréal, Québec.',
+  description: "Entreprise de rénovation générale à Montréal, spécialisée dans la transformation d'espaces résidentiels et commerciaux : cuisines, salles de bain, bureaux, revêtements de sol, solutions techniques et finitions haut de gamme.",
   keywords: [
     'menuiserie',
     'aluminium',
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
   },
   generator: 'Next.js 15',
 }
