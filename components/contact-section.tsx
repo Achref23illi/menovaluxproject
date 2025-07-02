@@ -1,9 +1,18 @@
 "use client"
 
-import type React from "react"
+// TypeScript declarations for EmailJS
+declare global {
+  interface Window {
+    emailjs: {
+      init: (publicKey: string) => void;
+      sendForm: (serviceId: string, templateId: string, form: HTMLFormElement, publicKey: string) => Promise<any>;
+    };
+  }
+}
 
-import { useState } from "react"
-import { Phone, Mail, MapPin, Clock, Send, Award } from "lucide-react"
+import type React from "react"
+import { useEffect, useState } from "react"
+import { Phone, Mail, MapPin, Clock, Send, Award, Check, X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -12,34 +21,117 @@ import { useLocale } from '@/components/locale-provider'
 
 export function ContactSection() {
   const { t } = useLocale()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [isEmailJSLoaded, setIsEmailJSLoaded] = useState(false)
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  })
+  useEffect(() => {
+    // Disable all alerts
+    if (typeof window !== 'undefined') {
+      window.alert = () => {}
+      
+      // Load EmailJS script
+      const script = document.createElement('script')
+      script.src = 'https://cdn.emailjs.com/dist/email.min.js'
+      script.async = true
+      script.onload = () => {
+        // Initialize EmailJS
+        if (window.emailjs) {
+          window.emailjs.init('O6YC_1QFGdyFHdCvG')
+          setIsEmailJSLoaded(true)
+        }
+      }
+      document.head.appendChild(script)
+    }
+  }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    })
+    
+    if (!isEmailJSLoaded || isSubmitting || !e.currentTarget) return
+    
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    
+    const form = e.currentTarget
+    
+    try {
+      await window.emailjs.sendForm(
+        'service_a99rdnb',
+        'template_jcua4dm',
+        form,
+        'O6YC_1QFGdyFHdCvG'
+      )
+      
+      // Success
+      setSubmitStatus('success')
+      form.reset()
+      
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+        setIsSubmitting(false)
+      }, 3000)
+      
+    } catch (error) {
+      // Error
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+      
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+        setIsSubmitting(false)
+      }, 3000)
+    }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const getButtonContent = () => {
+    if (isSubmitting) {
+      return (
+        <>
+          <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+          Envoi...
+        </>
+      )
+    }
+    
+    if (submitStatus === 'success') {
+      return (
+        <>
+          <Check className="h-4 w-4 mr-2" />
+          Envoyé
+        </>
+      )
+    }
+    
+    if (submitStatus === 'error') {
+      return (
+        <>
+          <X className="h-4 w-4 mr-2" />
+          Erreur
+        </>
+      )
+    }
+    
+    return (
+      <>
+        <Send className="h-4 w-4 mr-2" />
+        {t('contact_form_submit')}
+      </>
+    )
+  }
+
+  const getButtonClassName = () => {
+    if (submitStatus === 'success') {
+      return 'w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 transition-all duration-300'
+    }
+    
+    if (submitStatus === 'error') {
+      return 'w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 transition-all duration-300'
+    }
+    
+    return 'w-full bg-[#C9A961] hover:bg-[#B8975A] text-black font-semibold py-3'
   }
 
   return (
@@ -152,7 +244,7 @@ export function ContactSection() {
                   <CardTitle className="text-2xl text-white">{t('contact_form_title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleFormSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -163,8 +255,6 @@ export function ContactSection() {
                           name="name"
                           type="text"
                           required
-                          value={formData.name}
-                          onChange={handleChange}
                           className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                           placeholder={t('contact_form_placeholder_name') as string}
                         />
@@ -178,8 +268,6 @@ export function ContactSection() {
                           name="phone"
                           type="tel"
                           required
-                          value={formData.phone}
-                          onChange={handleChange}
                           className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                           placeholder={t('contact_form_placeholder_phone') as string}
                         />
@@ -195,8 +283,6 @@ export function ContactSection() {
                         name="email"
                         type="email"
                         required
-                        value={formData.email}
-                        onChange={handleChange}
                         className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                         placeholder={t('contact_form_placeholder_email') as string}
                       />
@@ -209,8 +295,6 @@ export function ContactSection() {
                       <select
                         id="service"
                         name="service"
-                        value={formData.service}
-                        onChange={handleChange}
                         className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
                       >
                         <option value="">{t('contact_form_select_service')}</option>
@@ -232,8 +316,6 @@ export function ContactSection() {
                         id="message"
                         name="message"
                         required
-                        value={formData.message}
-                        onChange={handleChange}
                         rows={4}
                         className="bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                         placeholder={t('contact_form_placeholder_project_description') as string}
@@ -242,10 +324,10 @@ export function ContactSection() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-[#C9A961] hover:bg-[#B8975A] text-black font-semibold py-3"
+                      disabled={isSubmitting || submitStatus !== 'idle'}
+                      className={getButtonClassName()}
                     >
-                      <Send className="h-4 w-4 mr-2" />
-                      {t('contact_form_submit')}
+                      {getButtonContent()}
                     </Button>
                   </form>
                 </CardContent>
